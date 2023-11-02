@@ -72,13 +72,15 @@ app.post('/webhook', async (req, res) => {
   const { event, build } = req.body;
   const { repoId, name } = req.query;
 
-  if (!repoId) {
-    throw new Error('Need a repoId query param on webhook URL');
-  }
+  console.log(req.body);
 
-  if (event === 'build-status-changed') {
-    await setCommitStatus(build, { repoId, name });
-  }
+  // if (!repoId) {
+  //   throw new Error('Need a repoId query param on webhook URL');
+  // }
+
+  // if (event === 'build-status-changed') {
+  //   await setCommitStatus(build, { repoId, name });
+  // }
 
   res.end('OK');
 });
